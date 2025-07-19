@@ -52,12 +52,18 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.SERVER_APP_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: (client) Extract metadata for Docker
         id: meta-client
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.CLIENT_APP_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Install Wasp
         shell: bash
@@ -120,7 +126,7 @@ jobs:
             cat > ~/deployments/pokemon-app/docker-compose.yml << 'EOF'
             services:
               server:
-                image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.SERVER_APP_NAME }}:latest
+                image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.SERVER_APP_NAME }}:${{ github.sha }}
                 restart: unless-stopped
                 ports:
                   - "3001:3001"
@@ -131,7 +137,7 @@ jobs:
                   - app-network
 
               client:
-                image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.CLIENT_APP_NAME }}:latest
+                image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.CLIENT_APP_NAME }}:${{ github.sha }}
                 restart: unless-stopped
                 ports:
                   - "80:80"
