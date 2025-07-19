@@ -12,6 +12,7 @@ concurrency:
 
 env:
   WASP_VERSION: "0.16.0"
+  APP_NAME: "pokemon"
   # Put your server app name here
   SERVER_APP_NAME: "pokemon-server"
   # After you know the server URL, put the URL here
@@ -134,7 +135,7 @@ jobs:
                   - NODE_ENV=production
                   - DATABASE_URL=${{ secrets.DATABASE_URL }}
                 networks:
-                  - app-network
+                  - ${{ env.APP_NAME }}-network
 
               client:
                 image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.CLIENT_APP_NAME }}:${{ github.sha }}
@@ -144,10 +145,10 @@ jobs:
                 depends_on:
                   - server
                 networks:
-                  - app-network
+                  - ${{ env.APP_NAME }}-network
 
             networks:
-              app-network:
+              ${{ env.APP_NAME }}-network:
                 driver: bridge
             EOF
 
