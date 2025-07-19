@@ -118,8 +118,6 @@ jobs:
 
             # 创建 docker-compose.yml 文件
             cat > ~/deployments/pokemon-app/docker-compose.yml << 'EOF'
-            version: '3.8'
-
             services:
               server:
                 image: ghcr.io/${{ env.DOCKER_REGISTRY_USERNAME }}/${{ env.SERVER_APP_NAME }}:latest
