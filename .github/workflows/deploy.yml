@@ -11,11 +11,11 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  WASP_VERSION: "0.15.1"
+  WASP_VERSION: "0.17.0"
   # Put your server app name here
   SERVER_APP_NAME: "pokemon-server"
   # After you know the server URL, put the URL here
-  SERVER_APP_URL: "https://api.<your-domain>"
+  SERVER_APP_URL: "https://api-wasp.migaox.com"
   # Put your client app name here
   CLIENT_APP_NAME: "pokemon-client"
   DOCKER_REGISTRY: "ghcr.io"
