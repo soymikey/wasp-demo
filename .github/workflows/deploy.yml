@@ -134,6 +134,7 @@ jobs:
                 environment:
                   - NODE_ENV=production
                   - DATABASE_URL=${{ secrets.DATABASE_URL }}
+                  - WASP_SERVER_URL=${{ secrets.WASP_SERVER_URL }}
                   - WASP_WEB_CLIENT_URL=${{ secrets.WASP_WEB_CLIENT_URL }}
                   - JWT_SECRET=${{ secrets.JWT_SECRET }}
                   - SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
