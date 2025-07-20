@@ -15,8 +15,8 @@ env:
   APP_NAME: "pokemon"
   # Put your server app name here
   SERVER_APP_NAME: "pokemon-server"
-  # After you know the server URL, put the URL here
-  SERVER_APP_URL: "https://api-wasp.migaox.com"
+  # # After you know the server URL, put the URL here
+  # SERVER_APP_URL: "https://api-wasp.migaox.com"
   # Put your client app name here
   CLIENT_APP_NAME: "pokemon-client"
   DOCKER_REGISTRY: "ghcr.io"
@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           cd ./.wasp/build/web-app
-          REACT_APP_API_URL=${{ env.SERVER_APP_URL }} npm run build
+          REACT_APP_API_URL=${{ secrets.WASP_SERVER_URL }} npm run build
 
       - name: (client) Prepare the Dockerfile
         shell: bash
@@ -134,6 +134,10 @@ jobs:
                 environment:
                   - NODE_ENV=production
                   - DATABASE_URL=${{ secrets.DATABASE_URL }}
+                  - WASP_WEB_CLIENT_URL=${{ secrets.WASP_WEB_CLIENT_URL }}
+                  - JWT_SECRET=${{ secrets.JWT_SECRET }}
+                  - SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
+
                 networks:
                   - ${{ env.APP_NAME }}-network
 
