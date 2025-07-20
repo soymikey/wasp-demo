@@ -142,6 +142,7 @@ jobs:
                   - GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
                   - GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
                   - GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+                  - STRIPE_API_KEY=${{ secrets.STRIPE_API_KEY }}
                   - STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
                   - STRIPE_CUSTOMER_PORTAL_URL=${{ secrets.STRIPE_CUSTOMER_PORTAL_URL }}
                   - PAYMENTS_HOBBY_SUBSCRIPTION_PLAN_ID=${{ secrets.PAYMENTS_HOBBY_SUBSCRIPTION_PLAN_ID }}
