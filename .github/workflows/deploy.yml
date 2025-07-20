@@ -138,6 +138,7 @@ jobs:
                   - WASP_WEB_CLIENT_URL=${{ secrets.WASP_WEB_CLIENT_URL }}
                   - JWT_SECRET=${{ secrets.JWT_SECRET }}
                   - SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
+                  - OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
 
                 networks:
                   - ${{ env.APP_NAME }}-network
