@@ -1,10 +1,6 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 
 const CLIENT_EMAIL = process.env.GOOGLE_ANALYTICS_CLIENT_EMAIL;
-console.log(
-  "process.env.GOOGLE_ANALYTICS_PRIVATE_KEY",
-  process.env.GOOGLE_ANALYTICS_PRIVATE_KEY
-);
 const PRIVATE_KEY = Buffer.from(
   process.env.GOOGLE_ANALYTICS_PRIVATE_KEY!,
   "base64"
