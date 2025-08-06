@@ -116,6 +116,12 @@ jobs:
           tags: ${{ steps.meta-client.outputs.tags }}
           labels: ${{ steps.meta-client.outputs.labels }}
 
+      - name: Verify Secrets
+        run: |
+          echo "=== 验证 Secrets 配置 ==="
+          echo "SERVER_HOST: ${{ secrets }}"
+          echo "=========================="
+
       - name: Deploy to Server
         uses: appleboy/ssh-action@v1.0.3
         with:
