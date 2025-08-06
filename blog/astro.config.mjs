@@ -22,7 +22,7 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            src: 'https://www.googletagmanager.com/gtag/js?id=<YOUR-GOOGLE-ANALYTICS-ID>',
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-FGP0LP4XHN',
           },
         },
         {
@@ -32,7 +32,7 @@ export default defineConfig({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', '<YOUR-GOOGLE-ANALYTICS-ID>');
+          gtag('config', 'G-FGP0LP4XHN');
           `,
         },
       ],
