@@ -119,7 +119,7 @@ jobs:
       - name: Verify Secrets
         run: |
           echo "=== 验证 Secrets 配置 ==="
-          echo "SERVER_HOST: ${{ secrets }}"
+          # echo "GOOGLE_ANALYTICS_PRIVATE_KEY: ${{ secrets.GOOGLE_ANALYTICS_PRIVATE_KEY }}"
           echo "=========================="
 
       - name: Deploy to Server
@@ -160,6 +160,9 @@ jobs:
                   - PAYMENTS_HOBBY_SUBSCRIPTION_PLAN_ID=${{ secrets.PAYMENTS_HOBBY_SUBSCRIPTION_PLAN_ID }}
                   - PAYMENTS_PRO_SUBSCRIPTION_PLAN_ID=${{ secrets.PAYMENTS_PRO_SUBSCRIPTION_PLAN_ID }}
                   - PAYMENTS_CREDITS_10_PLAN_ID=${{ secrets.PAYMENTS_CREDITS_10_PLAN_ID }}
+                  - GOOGLE_ANALYTICS_PRIVATE_KEY=${{ secrets.GOOGLE_ANALYTICS_PRIVATE_KEY }}
+                  - GOOGLE_ANALYTICS_CLIENT_EMAIL=${{ secrets.GOOGLE_ANALYTICS_CLIENT_EMAIL }}
+                  - GOOGLE_ANALYTICS_PROPERTY_ID=${{ secrets.GOOGLE_ANALYTICS_PROPERTY_ID }}
 
                 networks:
                   - ${{ env.APP_NAME }}-network
